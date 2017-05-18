@@ -325,6 +325,7 @@ set(GUI_SOURCES
   src/ProgressWidget.cc
   src/AutoUpdater.cc
   src/QGLView.cc
+  src/QSettingsCached.cc
   src/Dock.cc
   src/UIUtils.cc
   src/scadlexer.cpp
