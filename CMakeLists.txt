@@ -152,7 +152,7 @@ endif()
 #
 if(APPLE)
   message(STATUS "Offscreen OpenGL Context - using Apple CGL")
-  set(PLATFORM_SOURCES src/PlatformUtils-mac.mm src/OffscreenContextCGL.mm src/imageutils-macosx.cc src/CocoaUtils.mm src/AppleEvents.cc src/EventFilter.cc)
+  set(PLATFORM_SOURCES src/PlatformUtils-mac.mm src/OffscreenContextCGL.mm src/imageutils-macosx.cc src/CocoaUtils.mm src/AppleEvents.cc)
   find_library(COCOA_LIBRARY Cocoa)
   set(PLATFORM_LIBS ${COCOA_LIBRARY})
 elseif(UNIX)
@@ -349,6 +349,10 @@ set(GUI_SOURCES
   src/parameter/parametervector.cpp
   src/parameter/parametervirtualwidget.cpp
   )
+
+if(APPLE)
+  LIST(APPEND GUI_SOURCES src/EventFilter.cc)
+endif()
 
 if(NULLGL)
   message(STATUS "NULLGL is set. Overriding previous OpenGL(TM) settings")
